@@ -2,7 +2,7 @@ let minutes = 0;
 let seconds = 0;
 
 minutes = 45;
-seconds = 6;
+seconds = 0;
 
 if (seconds === 0) {
   console.log(`${minutes} minutes`);
@@ -10,4 +10,8 @@ if (seconds === 0) {
   console.log(`${minutes} minutes ${seconds} seconds`);
 }
 
-const str = "iterable element";
+if (seconds) {
+  console.log(`${minutes} min ${seconds} sec`);
+} else {
+  console.log(`${minutes} min`);
+}
