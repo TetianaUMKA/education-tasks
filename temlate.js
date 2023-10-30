@@ -112,6 +112,19 @@ for (let i = 0; i < str.length; i += 1) {
   console.log(str[i]);
 }
 
+for (let i = 0; i < str.length; i += 1) {
+  if (str[i] !== "n") {
+    continue;
+  }
+  console.log(str[i]);
+}
+
+for (let i = 0; i < str.length; i += 1) {
+  if (str[i] === "n") {
+    console.log(str[i]);
+  }
+}
+
 // const str = "while";
 // let i = 0;
 // while (i < str.length) {
