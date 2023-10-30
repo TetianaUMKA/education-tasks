@@ -141,14 +141,35 @@ for (let i = 0; i < str.length; i += 1) {
 //   i += 1;
 // }
 
-const string = "while";
+// const string = "while";
+// let i = 0;
+// while (i < string.length) {
+//   if (string[i] !== "l") {
+//     console.log("no", string[i]);
+//   } else {
+//     console.log("yes", string[i]);
+//     break;
+//   }
+//   i += 1;
+// }
+
+const string = "do while";
 let i = 0;
-while (i < string.length) {
+
+do {
   if (string[i] !== "l") {
     console.log("no", string[i]);
   } else {
     console.log("yes", string[i]);
-    break;
   }
   i += 1;
-}
+} while (i < string.length);
+
+// do {
+//   if (string[i] === "l") {
+//     console.log("yes", string[i]);
+//     break;
+//   }
+//   console.log("no", string[i]);
+//   i += 1;
+// } while (i < string.length);
