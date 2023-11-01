@@ -1,4 +1,4 @@
-let hours = 20;
+const hours = 20;
 
 // if (hours < 17) {
 //   console.log("Pending");
