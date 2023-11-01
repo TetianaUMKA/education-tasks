@@ -62,6 +62,42 @@ console.log(!"mango".indexOf("nam"));
 // за відсутності частини рядка дає значення:false
 console.log("mango".includes("nam"));
 
+// Деякі методи
+const roundedValue = 27.5;
+console.log(Math.round(roundedValue));
+// console.log(Math.ceil(roundedValue));
+// console.log(Math.floor(roundedValue));
+
+// Конкатенація - це операція додавання рядків, навіть якщо різні типи примитивних данних, домінуючим буде рядок при такому додаванні
+const name = "Artem";
+const age = 25;
+const resultConcatenation = name + " " + age + " years old";
+console.log(resultConcatenation);
+
+const concatenationExample = 10 + 20 + "60" + 120;
+console.log(concatenationExample);
+
+// Щоб привести тип данних до number
+const value_1 = 10;
+const value_2 = "20";
+const result_1_2 = value_1 + Number(value_2);
+console.log(result_1_2);
+
+// Шаблоні рядки (з'явились з приходом EC 6) потреба в конкатенації зникла
+const companyName = "GoodWork";
+const repairWorkers = 120;
+const officeWorkers = 40;
+const messageDesk = `${companyName} has ${
+  repairWorkers + officeWorkers
+} in both departments`;
+console.log(messageDesk);
+
+// Методи рядків та чейнінг - це поєднання декількох методів
+let weight = "88,3";
+let height = "1.85";
+weight = Number(weight.replace(",", "."));
+console.log(weight);
+
 // розгалуження/умови
 const value = 5;
 
