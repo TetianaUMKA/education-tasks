@@ -1,3 +1,67 @@
+// Змінні const та let
+
+//  Не може бути без значення, та не може в подальшому перевизначатися
+const valueConst = 5;
+
+//  Може бути без значення, та може в подальшому перевизначатися
+let valueLet;
+valueLet = 3;
+
+// Використовувалась масово до 2015 р до виходу EcmaScript 6
+// має можливість визиватися вище по коду, а також долає всі області видимості, окрім функціональної
+valueVar = "valueVar";
+var valueVar;
+console.log(valueVar);
+
+// Нестроге та строге порівняння
+// true відбулося приведення типів
+console.log(2 == "2");
+// false відбулося порівняння типів
+console.log(2 === "2");
+
+// Два типи данних
+
+// Примитивні типи данних - імутабельні типи данних(їх можна змінити лише через перевизначення (за допомогою оператора присвоєння)
+// 1) Number
+// 2) String
+// 3) Boolean
+// 4) Undefind
+// 5) Null
+
+let students = 60;
+// the same result will be 110
+students = students + 50;
+students += 50;
+
+const result = 5 + 7 - 2 * 2;
+console.log(result);
+
+// Складні типи данних - мутабельні(їх можна змінювати за допомогою методів)
+// 1) .....
+
+// Булеве значення
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(0));
+console.log(Boolean(""));
+console.log(Boolean(NaN));
+console.log(Boolean(false));
+
+// Інверсія
+console.log(!false);
+
+// Деякі методи для перевірки
+
+// за відсутності частини рядка дає значення: -1
+console.log("mango".indexOf("nam"));
+// за прісутності частини рядка дає значення: 0
+console.log("mango".indexOf("man"));
+// щоб привести в булеве значення, треба поставити ! перед виразом
+console.log(!"mango".indexOf("nam"));
+
+// за відсутності частини рядка дає значення:false
+console.log("mango".includes("nam"));
+
 // розгалуження/умови
 const value = 5;
 
