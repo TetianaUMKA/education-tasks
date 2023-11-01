@@ -34,16 +34,36 @@ const dayUntilDeadlina = 5;
 //   console.log("A date in the future");
 // }
 
-switch (dayUntilDeadlina) {
-  case 0:
-    console.log("Today");
-    break;
-  case 1:
-    console.log("Tomorrow");
-    break;
-  case 2:
-    console.log("The day after tomorrow");
-    break;
-  default:
-    console.log(" A date in the future");
+// switch (dayUntilDeadlina) {
+//   case 0:
+//     console.log("Today");
+//     break;
+//   case 1:
+//     console.log("Tomorrow");
+//     break;
+//   case 2:
+//     console.log("The day after tomorrow");
+//     break;
+//   default:
+//     console.log(" A date in the future");
+// }
+
+const dayUntilDeadlinaAnother = -1;
+
+if (dayUntilDeadlinaAnother >= 0)
+  switch (dayUntilDeadlinaAnother) {
+    case 0:
+      console.log("Today");
+      break;
+    case 1:
+      console.log("Tomorrow");
+      break;
+    case 2:
+      console.log("The day after tomorrow");
+      break;
+    default:
+      console.log(" A date in the future");
+  }
+else {
+  console.log("The deadline has passed");
 }
