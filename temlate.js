@@ -77,6 +77,25 @@ console.log(resultConcatenation);
 const concatenationExample = 10 + 20 + "60" + 120;
 console.log(concatenationExample);
 
+// Оператори порівняння та приведення типів
+// https://symbl.cc/en/unicode/table/
+console.log(5 > 4); // true
+console.log(10 >= "7"); // true
+console.log("2" > "12"); // true
+console.log("2" < "12"); // false
+console.log("4" == 4); // true
+console.log("6" === 6); // false
+console.log("false" === false); // false
+// true => 1 // false => 0
+console.log(1 == true); // true
+console.log(1 === true); // false
+console.log(0 == false); //true
+console.log(0 === false); // false
+console.log("Lemon" < "lemon"); // true // "L" => 50 / 'l' => 70
+console.log("Lemon" === "lemon"); // false
+console.log(undefined == null); // true
+console.log(undefined === null); // false
+
 // Щоб привести тип данних до number
 const value_1 = 10;
 const value_2 = "20";
