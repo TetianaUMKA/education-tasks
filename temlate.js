@@ -110,6 +110,24 @@ console.log(null || 2 || undefined); // 2
 console.log((1 && null && 2) > 0); // false
 console.log(null || (2 && 3) || 4); // 3
 
+// Значення за замовчуванням та оператор нульового злиття
+// || працює на 6 значень, які повертають false(null, undefined, 0, "", false, NaN)
+const incomingValue = 5;
+const resultV = incomingValue + Number("qwe");
+console.log(resultV); // NaN
+const defaultValue = 10;
+console.log(resultV || defaultValue); // у разі якщо NaN, то видасть значення за замовчуванням
+// ?? - оператор нульового злиття пряцює на 2 значення: null, undefined
+// let test;
+// console.log(test); // undefind
+// const testValue = test ?? "some value";
+// console.log(testValue); // 'some value'
+
+let test = 0;
+console.log(test); // 0
+const testValue = test ?? "some value";
+console.log(testValue); // 0 //отже ?? використовуємо для ситуацій, коли необхідно виключити тільки null та undefined
+
 // Щоб привести тип данних до number
 const value_1 = 10;
 const value_2 = "20";
