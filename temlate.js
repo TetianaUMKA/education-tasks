@@ -96,6 +96,20 @@ console.log("Lemon" === "lemon"); // false
 console.log(undefined == null); // true
 console.log(undefined === null); // false
 
+// Логічні оператори
+// && - and // оператор повертає перше значення false, або останнє значення true
+console.log(true && 3); // 3
+console.log(false && 3); // false
+console.log(true && 4 && "kiwi"); // 'kiwi'
+console.log(true && 0 && "kiwi"); // 0
+// || - or // оператор повертає перше значення true, або останнє значення false
+console.log(true || 3); // true
+console.log(true || 3 || 4); // true
+console.log(true || false || 7); //true
+console.log(null || 2 || undefined); // 2
+console.log((1 && null && 2) > 0); // false
+console.log(null || (2 && 3) || 4); // 3
+
 // Щоб привести тип данних до number
 const value_1 = 10;
 const value_2 = "20";
