@@ -44,7 +44,7 @@ const result = 5 + 7 - 2 * 2;
 console.log(result);
 
 // Складні типи данних - мутабельні(їх можна змінювати за допомогою методів)
-// 1) Масиви
+// 1) Масиви (str #350)
 // 2) ...
 
 // Булеве значення
@@ -346,3 +346,16 @@ do {
 //   console.log("no", string[i]);
 //   i += 1;
 // } while (i < string.length);
+
+// Масиви
+//             0     1      2      3       4
+const array = ["hello", 1, null, true, [1, 2, 3]];
+//             1     2      3      4       5
+console.log(array);
+console.log(Array.isArray(array)); //  перевірка, чи прийшов масив
+// Array.isArray(array) - повертає true/false
+const first = array[0];
+console.log(first); //  'Hello'
+console.log(array.length - 1); // взнаємо індекс останього елемента масиву
+const last = array[array.length - 1];
+console.log(last); // (3) [1, 2, 3]
