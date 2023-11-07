@@ -359,3 +359,16 @@ console.log(first); //  'Hello'
 console.log(array.length - 1); // взнаємо індекс останього елемента масиву
 const last = array[array.length - 1];
 console.log(last); // (3) [1, 2, 3]
+
+// Ітерація масиву
+// Перебрати елементи масиву ми можемо за допомогою циклу for та for of
+const arrayIteration = ["hello", 1, null, [1, 2, 3], true];
+for (let i = 0; i < arrayIteration.length; i += 1) {
+  if (Array.isArray(arrayIteration[i])) {
+    for (let j = 0; j < arrayIteration[i].length; j += 1) {
+      console.log(arrayIteration[i][j]);
+    }
+    continue; // contonue поставили для того, щоб перейти до наступного елемента ітерації, бо цей елемент вже опрацьований в ітерації for, який вкладений у if
+  }
+  console.log(arrayIteration[i]);
+}
