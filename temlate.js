@@ -372,3 +372,16 @@ for (let i = 0; i < arrayIteration.length; i += 1) {
   }
   console.log(arrayIteration[i]);
 }
+
+// Приклад присвоєнням ітеруємого елементу змінній (константі)
+const arrayExample = ["string", 135, null, [5, 6, 7, 8, 9], true];
+for (let i = 0; i < arrayExample.length; i += 1) {
+  const arrayExampleItem = arrayExample[i];
+  if (Array.isArray(arrayExampleItem)) {
+    for (let j = 0; j < arrayExampleItem.length; j += 1) {
+      console.log(arrayExampleItem[j]);
+    }
+    continue;
+  }
+  console.log(arrayExample[i]);
+}
