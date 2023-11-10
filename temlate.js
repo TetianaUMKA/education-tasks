@@ -362,6 +362,7 @@ console.log(last); // (3) [1, 2, 3]
 
 // Ітерація масиву
 // Перебрати елементи масиву ми можемо за допомогою циклу for та for of
+// for !!!Ми працюємо з оригіналами елементів масиву
 const arrayIteration = ["hello", 1, null, [1, 2, 3], true];
 for (let i = 0; i < arrayIteration.length; i += 1) {
   if (Array.isArray(arrayIteration[i])) {
@@ -385,3 +386,19 @@ for (let i = 0; i < arrayExample.length; i += 1) {
   }
   console.log(arrayExample[i]);
 }
+
+//for of перебирає всі елементи масіву з перщого до останього,
+// !!! Але використовуючи for of ми працюємо з копію ітеруємого елемента
+for (const item of arrayExample) {
+  console.log(item);
+}
+
+// приклад, як визначити тип елементу масиву та якщо це потрібний тип, то перевизначити значення оригінального елементу для цього й треба  цикл for замість for of
+const arrayExampleType = ["super", 135, null, [5, 6, 7, 8, 9], true];
+for (let i = 0; i < arrayExampleType.length; i += 1) {
+  console.log(typeof arrayExampleType[i]);
+  if (typeof arrayExampleType[i] === "string") {
+    arrayExampleType[i] = "ok";
+  }
+}
+console.log(arrayExampleType); // ['ok', 135, null, [5, 6, 7, 8, 9], true]
