@@ -46,6 +46,12 @@ console.log(result);
 // Складні типи данних - мутабельні(їх можна змінювати за допомогою методів)
 // 1) Масиви (str #350)
 // 2) ...
+// приклад мутабельності
+const mutableArray = [350, 450, 650];
+mutableArray.push(850); // [350, 450, 650, 850]
+mutableArray.pop(); // [350, 450, 650]
+mutableArray.length = 0; // []
+console.log(mutableArray); // []
 
 // Булеве значення
 console.log(Boolean(undefined));
@@ -436,3 +442,10 @@ console.log(assignmentArray === copy); // true
 const arrayOne = [1, 2, 3, 4];
 const arrayTwo = [1, 2, 3, 4];
 console.log(arrayOne === arrayTwo); // false тому що це два різних пасилання на різні масиви
+
+const sports = ["футбол", "бейсбол"];
+const total = sports.push("американський футбол", "плавання");
+console.log(sports); // ['футбол', 'бейсбол', 'американський футбол', 'плавання']
+console.log(total); // 4 (показує length, або якщо інший метод, то іншу зміну)
+const total2 = sports.pop();
+console.log(total2); // плавання
