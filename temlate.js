@@ -449,3 +449,21 @@ console.log(sports); // ['футбол', 'бейсбол', 'американсь
 console.log(total); // 4 (показує length, або якщо інший метод, то іншу зміну)
 const total2 = sports.pop();
 console.log(total2); // плавання
+
+// Методи перетворення у масив та роботи з ним
+const stringA = "Hello word";
+const arrayA = stringA.split(" ");
+const arrayB = stringA.split("");
+console.log(arrayA); // ['Hello', 'word']
+console.log(arrayB); // ['H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'd']
+const arrayC = stringA.split("anithing");
+console.log(arrayC); // ['Hello word']
+console.log(stringA); // "Hello word" // залишилась незмінною
+// змінює порядок розташування елементів масиву
+arrayA.reverse();
+console.log(arrayA); // ['word', 'Hello',]
+// перетворює в рядок елементи масиву
+const resultA = arrayA.join("-");
+console.log(resultA); // "word-Hello"
+
+// const resultA = stringA.split(" ").reverse().join("-") // "word-Hello" // можна було все одною строкою записати (chaining)
