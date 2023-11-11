@@ -402,3 +402,37 @@ for (let i = 0; i < arrayExampleType.length; i += 1) {
   }
 }
 console.log(arrayExampleType); // ['ok', 135, null, [5, 6, 7, 8, 9], true]
+
+// while
+const arrayW = [24, "Hello", null, true, [20, 30, 40]];
+let l = 0;
+while (l < arrayW.length) {
+  console.log(arrayW[l]);
+  if (arrayW[l] === null) {
+    arrayW[l] = false;
+  }
+  l += 1;
+}
+console.log(arrayW); // [24, "Hello", false, true, [20, 30, 40]];
+
+// Присвоєння в примітивних типах даних (під кожну змінну виділяється окремий куточок памяті)
+let valueExample = 1;
+let testExample = valueExample;
+valueExample += 10;
+console.log("testExample:", testExample); // testExample: 1
+console.log("valueExample:", valueExample); // valueExample: 11
+valueExample = "str";
+console.log("valueExample:", valueExample); // valueExample: str
+console.log(valueExample === testExample); // false
+
+// Присвоєння в складних типах даних (іншій змінній(copy) ми присвоюємо посилання на масив, а отже якщо ми робимо якісь дії з однією зміною, то це відображається на іншій, бо це одне й те саме місце в памяті, ті самі данні)
+const assignmentArray = [120, 130, 140, 150];
+const copy = assignmentArray;
+assignmentArray.push(160, 170);
+console.log(assignmentArray); // [120, 130, 140, 150, 160, 170];
+console.log(copy); // [120, 130, 140, 150, 160, 170];
+console.log(assignmentArray === copy); // true
+
+const arrayOne = [1, 2, 3, 4];
+const arrayTwo = [1, 2, 3, 4];
+console.log(arrayOne === arrayTwo); // false тому що це два різних пасилання на різні масиви
