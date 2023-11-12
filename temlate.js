@@ -502,3 +502,34 @@ console.log(arrayExample2); // ["No doubt", "Yes", "No", "Of course"]
 const arrayShift = arrayExample2.shift();
 console.log(arrayShift); // No doubt
 console.log(arrayExample2); // ["Yes", No", "Of course"]
+
+// indexOf(value) повертає перший індекс, в якому елемент зі значенням value був знайдений в масиві, або число -1, якщо такий елемент відсутній.
+const customers = ["White", "Brown", "Grey", "Green"];
+console.log(customers.indexOf("Brown")); // 2
+console.log(customers.indexOf("Red")); // -1
+
+// includes(value) перевіряє, чи містить масив елемент зі значенням value і повертає true або false
+console.log(customers.includes("Brown")); // true
+console.log(customers.includes("Red")); // false
+
+// splice() видаляє, додає і замінює елементи у довільному місці масиву.
+// видалення // splice(position, num) змінює вихідний масив і повертає масив, що містить видалені елементи
+const customers2 = ["White", "Brown", "Grey", "Green", "Yellow"];
+const deletedCustomers = customers2.splice(1, 2);
+console.log(customers2); // ["White", "Green", "Yellow"]
+console.log(deletedCustomers); // ["Brown", "Grey"]
+// додавання // splice(position, 0, new_element_1, new_element_2, ...)
+const addedCustomers = customers2.splice(1, 0, "Black", "Blue");
+console.log(customers2); // ["White", "Black", "Blue", "Green", "Yellow"]
+console.log(addedCustomers); // нічого не повертає []
+// заміна // splice(position, num, new_element_1, new_element_2, ...)
+const replacedCustomers = customers2.splice(1, 2, "Red");
+console.log(customers2); // ["White", "Red", "Green", "Yellow"]
+console.log(replacedCustomers); // ["Black", "Blue"]
+
+// slice(begin, end) повертає новий масив, що містить копію частини вихідного масиву, не змінюючи його.
+// Копія створюється з begin та до, але не включно, end - індекси елементів вихідного масиву.
+const customers3 = ["Girl", "Boy", "Baby", "Dog", "Man", "Woman"];
+const newCustomer3 = customers3.slice(2, 4);
+console.log(customers3); // ["Girl", "Boy", "Baby", "Dog", "Man", "Woman"] // без змін
+console.log(newCustomer3); // ["Baby", "Dog"] // новий масив
