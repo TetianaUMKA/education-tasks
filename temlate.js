@@ -44,7 +44,7 @@ const result = 5 + 7 - 2 * 2;
 console.log(result);
 
 // Складні типи данних - мутабельні(їх можна змінювати за допомогою методів)
-// 1) Масиви (str #350)
+// 1) Масиви (str #356)
 // 2) ...
 // приклад мутабельності
 const mutableArray = [350, 450, 650];
@@ -393,7 +393,7 @@ for (let i = 0; i < arrayExample.length; i += 1) {
   console.log(arrayExample[i]);
 }
 
-//for of перебирає всі елементи масіву з перщого до останього,
+//for of перебирає всі елементи масsву з перщого до останього,
 // !!! Але використовуючи for of ми працюємо з копію ітеруємого елемента
 for (const item of arrayExample) {
   console.log(item);
@@ -421,53 +421,6 @@ while (l < arrayW.length) {
 }
 console.log(arrayW); // [24, "Hello", false, true, [20, 30, 40]];
 
-// Присвоєння в примітивних типах даних (під кожну змінну виділяється окремий куточок памяті)
-let valueExample = 1;
-let testExample = valueExample;
-valueExample += 10;
-console.log("testExample:", testExample); // testExample: 1
-console.log("valueExample:", valueExample); // valueExample: 11
-valueExample = "str";
-console.log("valueExample:", valueExample); // valueExample: str
-console.log(valueExample === testExample); // false
-
-// Присвоєння в складних типах даних (іншій змінній(copy) ми присвоюємо посилання на масив, а отже якщо ми робимо якісь дії з однією зміною, то це відображається на іншій, бо це одне й те саме місце в памяті, ті самі данні)
-const assignmentArray = [120, 130, 140, 150];
-const copy = assignmentArray;
-assignmentArray.push(160, 170);
-console.log(assignmentArray); // [120, 130, 140, 150, 160, 170];
-console.log(copy); // [120, 130, 140, 150, 160, 170];
-console.log(assignmentArray === copy); // true
-
-const arrayOne = [1, 2, 3, 4];
-const arrayTwo = [1, 2, 3, 4];
-console.log(arrayOne === arrayTwo); // false тому що це два різних пасилання на різні масиви
-
-const sports = ["футбол", "бейсбол"];
-const total = sports.push("американський футбол", "плавання");
-console.log(sports); // ['футбол', 'бейсбол', 'американський футбол', 'плавання']
-console.log(total); // 4 (показує length, або якщо інший метод, то іншу зміну)
-const total2 = sports.pop();
-console.log(total2); // плавання
-
-// Методи перетворення у масив та роботи з ним
-const stringA = "Hello word";
-const arrayA = stringA.split(" ");
-const arrayB = stringA.split("");
-console.log(arrayA); // ['Hello', 'word']
-console.log(arrayB); // ['H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'd']
-const arrayC = stringA.split("anithing");
-console.log(arrayC); // ['Hello word']
-console.log(stringA); // "Hello word" // залишилась незмінною
-// змінює порядок розташування елементів масиву
-arrayA.reverse();
-console.log(arrayA); // ['word', 'Hello',]
-// перетворює в рядок елементи масиву
-const resultA = arrayA.join("-");
-console.log(resultA); // "word-Hello"
-
-// const resultA = stringA.split(" ").reverse().join("-") // "word-Hello" // можна було все одною строкою записати (chaining)
-
 // break & continue
 // continue ніби говорить skip цю ітерацію
 const numbers = [1, 3, 14, 18, 4, 7, 29, 6, 34];
@@ -490,3 +443,62 @@ for (const client of clients) {
   }
 }
 console.log(message); // Клієнт з таким ім'ям є в базі даних!
+
+// Присвоєння в примітивних типах даних (під кожну змінну виділяється окремий куточок памяті)
+let valueExample = 1;
+let testExample = valueExample;
+valueExample += 10;
+console.log("testExample:", testExample); // testExample: 1
+console.log("valueExample:", valueExample); // valueExample: 11
+valueExample = "str";
+console.log("valueExample:", valueExample); // valueExample: str
+console.log(valueExample === testExample); // false
+
+// Присвоєння в складних типах даних (іншій змінній(copy) ми присвоюємо посилання на масив, а отже якщо ми робимо якісь дії з однією зміною, то це відображається на іншій, бо це одне й те саме місце в памяті, ті самі данні)
+const assignmentArray = [120, 130, 140, 150];
+const copy = assignmentArray;
+assignmentArray.push(160, 170);
+console.log(assignmentArray); // [120, 130, 140, 150, 160, 170];
+console.log(copy); // [120, 130, 140, 150, 160, 170];
+console.log(assignmentArray === copy); // true
+const arrayOne = [1, 2, 3, 4];
+const arrayTwo = [1, 2, 3, 4];
+console.log(arrayOne === arrayTwo); // false тому що це два різних пасилання на різні масиви
+
+// Методи для роботи з масивом //
+
+const sports = ["футбол", "бейсбол"];
+// push() додає один або декілька елементів наприкінці масиву
+const total = sports.push("американський футбол", "плавання");
+console.log(sports); // ['футбол', 'бейсбол', 'американський футбол', 'плавання']
+console.log(total); // 4 (повертає length, або якщо інший метод, то іншу зміну)
+// pop() видаляє останній елемент з кінця масиву
+const total2 = sports.pop();
+console.log(total2); // плавання
+
+const stringA = "Hello word";
+// split(delimiter) перетворює рядок в масив
+const arrayA = stringA.split(" ");
+const arrayB = stringA.split("");
+console.log(arrayA); // ['Hello', 'word']
+console.log(arrayB); // ['H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'd']
+const arrayC = stringA.split("anything");
+console.log(arrayC); // ['Hello word']
+console.log(stringA); // "Hello word" // залишилась незмінною
+// reverse() змінює порядок розташування елементів масиву
+arrayA.reverse();
+console.log(arrayA); // ['word', 'Hello',]
+// join(delimiter) перетворює в рядок елементи масиву
+const resultA = arrayA.join("-");
+console.log(resultA); // "word-Hello"
+// const resultA = stringA.split(" ").reverse().join("-") // "word-Hello" // можна було все одною строкою записати (chaining)
+
+// unshift() додає один або декілька елементів напочаток масиву
+const arrayExample2 = ["Yes", "No", "Of course"];
+const arrayUnshift = arrayExample2.unshift("No doubt");
+console.log(arrayUnshift); // 4 // повертає length
+console.log(arrayExample2); // ["No doubt", "Yes", "No", "Of course"]
+// shift() видаляє перший елемент з початку масиву
+const arrayShift = arrayExample2.shift();
+console.log(arrayShift); // No doubt
+console.log(arrayExample2); // ["Yes", No", "Of course"]
