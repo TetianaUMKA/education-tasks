@@ -16,13 +16,11 @@ for (let i = 0; i < carsArray.length; i += 1) {
   if (carsArray[i] === "white") {
     const deletedCars = carsArray.splice(i, 1);
     console.log(deletedCars);
-    deletedCarsArray.push(deletedCars);
+    deletedCarsArray.push(deletedCars.join(" "));
   }
 }
 console.log(carsArray);
 console.log(deletedCarsArray);
-const newDeletedCarsArray = deletedCarsArray.join(" ").split(" ");
-console.log("newDeletedCarsArray: ", newDeletedCarsArray);
 
 for (let i = 0; i < carsArray.length; i += 1) {
   if (carsArray[i] === "red") {
