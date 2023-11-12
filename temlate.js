@@ -533,3 +533,15 @@ const customers3 = ["Girl", "Boy", "Baby", "Dog", "Man", "Woman"];
 const newCustomer3 = customers3.slice(2, 4);
 console.log(customers3); // ["Girl", "Boy", "Baby", "Dog", "Man", "Woman"] // без змін
 console.log(newCustomer3); // ["Baby", "Dog"] // новий масив
+
+// concat() об'єднує два або більше масивів в один. Він не змінює масив, на якому викликається, а повертає новий.
+// Порядок аргументів методу впливає на порядок елементів нового масиву.
+
+const oldClients = ["One", "Two", "Three", "Four"];
+const newClients = ["Five", "Six"];
+const allClientsWithOldFirst = oldClients.concat(newClients);
+console.log(allClientsWithOldFirst); // ["One", "Two", "Three", "Four", "Five", "Six"]
+const allClientsWithNewFirst = newClients.concat(oldClients);
+console.log(allClientsWithNewFirst); // ["Five", "Six", "One", "Two", "Three", "Four"]
+console.log(oldClients); // ["One", "Two", "Three", "Four"]
+console.log(newClients); // ["Five", "Six"]
