@@ -20,21 +20,21 @@ console.log(langs);
 
 // task C
 const numbers = [2, 17, -156, 94, 1, 43, 35];
-// let min = numbers[0];
-// let ordinalArr = [];
-// for (let i = min; i < numbers.length; i += 1) {
-//   if (numbers[i] < min) {
-//     const numbersResult = numbers.splice(i, 1)[0];
-//     ordinalArr.push(numbersResult);
-//   }
-// }
-// console.log(ordinalArr);
-// console.log(numbers);
-
 let min = numbers[0];
-for (const value of numbers) {
-  if (value < min) {
-    min = value;
+let ordinalArr = [];
+for (let i = min; i < numbers.length; i += 1) {
+  if (numbers[i] < min) {
+    const numbersResult = numbers.splice(i, 1)[0];
+    ordinalArr.push(numbersResult);
   }
 }
-console.log(min);
+console.log(ordinalArr);
+console.log(numbers);
+
+// let min = numbers[0];
+// for (const value of numbers) {
+//   if (value < min) {
+//     min = value;
+//   }
+// }
+// console.log(min);
