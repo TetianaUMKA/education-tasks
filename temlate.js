@@ -545,3 +545,17 @@ const allClientsWithNewFirst = newClients.concat(oldClients);
 console.log(allClientsWithNewFirst); // ["Five", "Six", "One", "Two", "Three", "Four"]
 console.log(oldClients); // ["One", "Two", "Three", "Four"]
 console.log(newClients); // ["Five", "Six"]
+
+// Functions
+
+const arr1 = [50, 100, 200];
+const arr2 = [60, 200, 300];
+const arr3 = [70, 400, 500];
+
+function count(item) {
+  for (let i = 0; i < item.length; i += 1) {
+    item[i] = (item[i] * 30) / 100;
+  }
+  console.log(item);
+}
+count(arr1);
