@@ -548,14 +548,34 @@ console.log(newClients); // ["Five", "Six"]
 
 // Functions
 
-const arr1 = [50, 100, 200];
-const arr2 = [60, 200, 300];
-const arr3 = [70, 400, 500];
+const arr5 = [50, 100, 200];
+const arr6 = [60, 200, 300];
+const arr7 = [70, 400, 500];
+
+// Function declaration creates a Function object. This type of function returns a value each time when it is called everywhere in the code (after or before diclaration).
 
 function count(item) {
   for (let i = 0; i < item.length; i += 1) {
     item[i] = (item[i] * 30) / 100;
   }
-  console.log(item);
+  return item;
+  // console.log(item);
 }
-count(arr1);
+console.log(count(arr5));
+// count(arr5);
+
+// Function expression - the type of function which is called immediately and assigned to a variable. It is an anonymous function. Therefore this function we can call only after declaring.
+const showScore = function (item) {
+  let score = 0;
+  for (let i = 0; i < item.length; i += 1) {
+    if (item[i] > 0) {
+      score += item[i];
+    }
+    console.log(item[i]);
+  }
+  // return `Your score: ${score}`;
+  console.log(`Your score: ${score}`);
+};
+
+// console.log(showScore(arr6));
+showScore(arr6);
