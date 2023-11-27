@@ -546,7 +546,7 @@ console.log(allClientsWithNewFirst); // ["Five", "Six", "One", "Two", "Three", "
 console.log(oldClients); // ["One", "Two", "Three", "Four"]
 console.log(newClients); // ["Five", "Six"]
 
-// Functions
+// Functions //
 
 const arr5 = [50, 100, 200];
 const arr6 = [60, 200, 300];
@@ -579,3 +579,37 @@ const showScore = function (item) {
 
 // console.log(showScore(arr6));
 showScore(arr6);
+
+// Arguments is the like-array object inside function which is an iterable object that contains the values of the arguments passed to that function. It solves a problems with an unknown numbers of arguments. But it hasn't usefull methods such as sort.arguments, splice.arguments, includes.arguments etc.
+
+function add() {
+  console.log(arguments);
+  let sum = 0;
+  // for (let i = 0; i < arguments.length; i += 1) {
+  //   sum += arguments[i];
+  // }
+  for (const value of arguments) {
+    sum += value;
+  }
+  console.log(sum);
+}
+
+add(25, 65, 95, 135);
+add(45, 75, 250);
+add(350, 750, 1050, 1250, 1450);
+
+//but if we need more then the like-array object we should use the method Array.from(arguments), Array.prototype.slice.call(arguments) or use 'spread syntax' spread to convert it to an array
+
+function sortScore() {
+  // const sortedArray = Array.from(arguments);
+  // const sortedArray = [...arguments];
+  const sortedArray = Array.prototype.slice.call(arguments);
+  for (const value of sortedArray) {
+    sortedArray.sort();
+  }
+  console.log(sortedArray);
+}
+
+sortScore(2, 5, 1, 3);
+sortScore("k", "c", "d", "r", "a");
+sortScore("Tetiana", "Alice", "Carl", "Michel", "Angel");
