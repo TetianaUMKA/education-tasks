@@ -84,9 +84,9 @@ console.log(Math.round(roundedValue));
 // console.log(Math.floor(roundedValue));
 
 // Конкатенація - це операція додавання рядків, навіть якщо різні типи примитивних данних, домінуючим буде рядок при такому додаванні
-const name = "Artem";
+const firstName = "Artem";
 const age = 25;
-const resultConcatenation = name + " " + age + " years old";
+const resultConcatenation = firstName + " " + age + " years old";
 console.log(resultConcatenation);
 
 const concatenationExample = 10 + 20 + "60" + 120;
@@ -208,6 +208,8 @@ switch (true) {
   default:
     console.log("default");
 }
+
+// Conditional (ternary) operator // that we can use instead of "if ... alse", but we can use only three operandes. It is written like this "condition ? expression1 : expression2;"
 
 // Області видимості
 
@@ -552,7 +554,7 @@ const arr5 = [50, 100, 200];
 const arr6 = [60, 200, 300];
 const arr7 = [70, 400, 500];
 
-// Function declaration creates a Function object. This type of function returns a value each time when it is called everywhere in the code (after or before diclaration).
+// Function declaration creates a Function object. This type of function returns a value each time when it is called everywhere in the code (after or before initialization).
 
 function count(item) {
   for (let i = 0; i < item.length; i += 1) {
@@ -580,7 +582,7 @@ const showScore = function (item) {
 // console.log(showScore(arr6));
 showScore(arr6);
 
-// Arguments is the like-array object inside function which is an iterable object that contains the values of the arguments passed to that function. It solves a problems with an unknown numbers of arguments. But it hasn't usefull methods such as sort.arguments, splice.arguments, includes.arguments etc.
+// Arguments is the like-array object inside function which is an iterable object that contains the values of the arguments passed to that function. It solves a problems with an unknown numbers of arguments. But it doesn't have usefull methods such as sort.arguments, splice.arguments, includes.arguments etc.
 
 function add() {
   console.log(arguments);
@@ -598,18 +600,49 @@ add(25, 65, 95, 135);
 add(45, 75, 250);
 add(350, 750, 1050, 1250, 1450);
 
-//but if we need more then the like-array object we should use the method Array.from(arguments), Array.prototype.slice.call(arguments) or use 'spread syntax' spread to convert it to an array
+// but if we need more then the like-array object we should use the methods such as:
+// 1) Array.from(arguments)
+// 2) Array.prototype.slice.call(arguments)
+// 3)'spread syntax: [...arguments]' It do spreading and convert the like-array to an array
 
 function sortScore() {
   // const sortedArray = Array.from(arguments);
-  // const sortedArray = [...arguments];
-  const sortedArray = Array.prototype.slice.call(arguments);
+  // const sortedArray = Array.prototype.slice.call(arguments);
+  const sortedArray = [...arguments];
   for (const value of sortedArray) {
     sortedArray.sort();
   }
   console.log(sortedArray);
 }
 
-sortScore(2, 5, 1, 3);
-sortScore("k", "c", "d", "r", "a");
-sortScore("Tetiana", "Alice", "Carl", "Michel", "Angel");
+sortScore(2, 5, 1, 3); // [1, 2, 3, 5]
+sortScore("k", "c", "d", "r", "a"); // ["a", "c", "d", "k", "r"]
+sortScore("Tetiana", "Alice", "Carl", "Michel", "Angel"); // ["Alice", "Angel", "Carl", "Michel", "Tetiana"]
+
+// The operator "return" gives back the result of the function
+
+function largeNumber() {
+  const largeNumberList = [];
+  for (const value of arguments) {
+    if (value > 10) {
+      largeNumberList.push(value);
+    }
+  }
+  return largeNumberList;
+}
+console.log(largeNumber(23, 5, 78, 2, 45, 8, 10)); // [23, 78, 45]
+
+function largeNumber2() {
+  let sum = 0;
+  for (const value of arguments) {
+    sum += value;
+  }
+  // if (sum > 10) {
+  //   return sum;
+  // } else {
+  //   return 0;
+  // }
+  return sum > 10 ? sum : 0;
+}
+console.log(largeNumber2(2, 3, 4));
+console.log(largeNumber2(10, 20, 30));
