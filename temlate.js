@@ -211,14 +211,14 @@ switch (true) {
 
 // Conditional (ternary) operator // that we can use instead of "if ... alse", but we can use only three operandes. It is written like this "condition ? expression1 : expression2;"
 
-// Області видимості
+// Області видимості (field of view). Part 1
 
 let a = 15;
 
 if (true) {
   a = 25;
 }
-console.log(a);
+console.log(a); // 25
 
 let b = 15;
 
@@ -226,7 +226,7 @@ if (true) {
   let b = 1;
   b = 25;
 }
-console.log(b);
+console.log(b); // 15
 
 let c = 10;
 
@@ -236,7 +236,7 @@ if (true) {
     c = 25;
   }
 }
-console.log(c);
+console.log(c); // 10
 
 let d = 10;
 
@@ -245,7 +245,7 @@ if (true) {
   if (true) {
     d = 25;
   }
-  console.log(d);
+  console.log(d); // 25
 }
 
 let g = 10;
@@ -256,7 +256,7 @@ if (true) {
     g = 25;
   }
 }
-console.log(g);
+console.log(g); // 25
 
 let f = 25;
 
@@ -265,7 +265,7 @@ if (true) {
   if (true) {
     f = 31;
   }
-  console.log(f);
+  console.log(f); // 31
 }
 
 // Цикли
@@ -668,3 +668,35 @@ console.log(addNumber2(155, 10)); // 165
    for array   function addNumber2(val1, val2 = [])
    etc
 */
+
+// Області видимості (field of view). Part 2
+let n = 10;
+function foo() {
+  a = 15;
+}
+foo();
+console.log(a); // 15
+
+let o = 10;
+function fii() {
+  let o = 15;
+}
+foo();
+console.log(o); // 10
+
+let p = 10;
+function faa() {
+  let p = 15;
+  p = 45;
+}
+faa();
+console.log(p); // 10
+
+// wrong example
+// let r = 10;
+// function fee() {
+//   r = 45;
+//   let r = 15;
+// }
+// fee();
+// console.log(r); //  Cannot access 'r' before initialization
