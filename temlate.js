@@ -600,12 +600,13 @@ add(25, 65, 95, 135);
 add(45, 75, 250);
 add(350, 750, 1050, 1250, 1450);
 
-// but if we need more then the like-array object we should use the methods such as:
-// 1) Array.from(arguments)
-// 2) Array.prototype.slice.call(arguments)
-// 3)'spread syntax: [...arguments]' It do spreading and convert the like-array to an array
+/* but if we need more then the like-array object we should use the methods such as:
+1) Array.from(arguments)
+2) Array.prototype.slice.call(arguments)
+3)'spread syntax: [...arguments]' It do spreading and convert the like-array to an array
+*/
 
-function sortScore() {
+function sortData() {
   // const sortedArray = Array.from(arguments);
   // const sortedArray = Array.prototype.slice.call(arguments);
   const sortedArray = [...arguments];
@@ -615,13 +616,13 @@ function sortScore() {
   console.log(sortedArray);
 }
 
-sortScore(2, 5, 1, 3); // [1, 2, 3, 5]
-sortScore("k", "c", "d", "r", "a"); // ["a", "c", "d", "k", "r"]
-sortScore("Tetiana", "Alice", "Carl", "Michel", "Angel"); // ["Alice", "Angel", "Carl", "Michel", "Tetiana"]
+sortData(2, 5, 1, 3); // [1, 2, 3, 5]
+sortData("k", "c", "d", "r", "a"); // ["a", "c", "d", "k", "r"]
+sortData("Tetiana", "Alice", "Carl", "Michel", "Angel"); // ["Alice", "Angel", "Carl", "Michel", "Tetiana"]
 
 // The operator "return" gives back the result of the function
 
-function largeNumber() {
+function findLargeNumber() {
   const largeNumberList = [];
   for (const value of arguments) {
     if (value > 10) {
@@ -630,9 +631,9 @@ function largeNumber() {
   }
   return largeNumberList;
 }
-console.log(largeNumber(23, 5, 78, 2, 45, 8, 10)); // [23, 78, 45]
+console.log(findLargeNumber(23, 5, 78, 2, 45, 8, 10)); // [23, 78, 45]
 
-function largeNumber2() {
+function largeSum() {
   let sum = 0;
   for (const value of arguments) {
     sum += value;
@@ -644,5 +645,26 @@ function largeNumber2() {
   // }
   return sum > 10 ? sum : 0;
 }
-console.log(largeNumber2(2, 3, 4));
-console.log(largeNumber2(10, 20, 30));
+console.log(largeSum(2, 3, 4));
+console.log(largeSum(10, 20, 30));
+
+// known number of arguments
+function addNumber(val1, val2) {
+  return val1 + val2;
+}
+console.log(addNumber(120, 130));
+/* but if we receive a wrong number of arguments, the function will return NaN, because a uncome value will be undefind
+for example: more console.log(addNumber(120, 130, 150)) or fewer console.log(addNumber(120))*/
+
+// So that we have to specify a default value if we are not sure whether it will come or not
+
+function addNumber2(val1, val2 = 0) {
+  return val1 + val2;
+}
+console.log(addNumber2(155)); // 155
+console.log(addNumber2(155, 10)); // 165
+
+/* for string  function addNumber2(val1, val2 = '')
+   for array   function addNumber2(val1, val2 = [])
+   etc
+*/
