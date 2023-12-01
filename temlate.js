@@ -700,3 +700,59 @@ console.log(p); // 10
 // }
 // fee();
 // console.log(r); //  Cannot access 'r' before initialization
+
+let s = 10;
+function fuu(s) {
+  s = 45;
+}
+fuu();
+console.log(s); // 10
+
+let t = 10;
+function fyy(t) {
+  t = 45;
+}
+fyy(15);
+console.log(t); // 10
+
+let v = 10;
+function fya(v) {
+  v = 45;
+}
+fya(v);
+console.log(v); // 10
+
+let w = 10;
+function fyb(w) {
+  w = 45;
+  return w;
+}
+fyb();
+console.log(w); // 10
+
+const data = [1, 2, 3];
+function deleteData(val) {
+  val.splice(0, 1);
+}
+deleteData(data);
+console.log(data); // [2, 3]
+
+// Call stack (стек викликів)
+
+function createString(fullname, balance) {
+  // const result = addScores(balance);
+  // return `${fullname}, your balance is ${result} scores. You can spend them for everything!`;
+  return `${fullname}, your balance is ${addScores(
+    balance
+  )} scores. You can spend them for everything!`;
+}
+console.log(createString("Tetiana", [500, 4000, 3000]));
+
+function addScores(arr) {
+  let balanceSum = 0;
+  for (const value of arr) {
+    balanceSum += value;
+  }
+  return balanceSum;
+}
+//-------
