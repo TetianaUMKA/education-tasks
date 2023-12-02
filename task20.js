@@ -8,7 +8,7 @@ function calcBMI(weight, height) {
   );
 }
 
-const bmiTetiana = calcBMI("53.5", "1,65");
+const bmiTetiana = calcBMI("53.5", "1,65"); // 19.7
 console.log(bmiTetiana);
-const bmiAlex = calcBMI("80,6", "1.88");
+const bmiAlex = calcBMI("80,6", "1.88"); // 22.8
 console.log(bmiAlex);
