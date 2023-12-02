@@ -30,7 +30,6 @@ console.log(findSmallestNumber(56, 4, 98, 450, 8, 68));
 //task 23.3
 function findLargestNumber2() {
   const arr = [...arguments];
-  console.log(arr);
   let min = 0;
   let minN;
   for (const num of arr) {
