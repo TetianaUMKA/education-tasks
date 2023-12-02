@@ -22,3 +22,15 @@ printContactInfo(
   "Jacob,William,Solomon,Artemis",
   "89001234567,89001121232,89005556345,89007865439"
 );
+
+function printContactInfo2(names, phones) {
+  names = names.split(",");
+  phones = phones.split(",");
+  for (let i = 0; i < names.length, i < phones.length; i += 1) {
+    console.log(`${i + 1}. ${names[i]} -> ${phones[i]}`);
+  }
+}
+printContactInfo2(
+  "Jacob,William,Solomon,Artemis",
+  "89001234567,89001121232,89005556345,89007865439"
+);
