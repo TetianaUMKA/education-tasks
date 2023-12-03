@@ -27,7 +27,7 @@ function findSmallestNumber() {
 console.log(findSmallestNumber(2, 15, 230, 45, 6, 97));
 console.log(findSmallestNumber(56, 4, 98, 450, 8, 68));
 
-//task 23.3
+// task 23.3
 function findLargestNumber2() {
   const arr = [...arguments];
   let min = 0;
