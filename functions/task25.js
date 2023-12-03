@@ -1,6 +1,6 @@
 function formatTime(minutes) {
   let hours = Math.floor(minutes / 60);
-  minutes = minutes % 60;
+  minutes = minutes % 60; // залишок від ділення
   return `${hours.toString().padStart(2, 0)}:${minutes
     .toString()
     .padStart(2, 0)}`;
