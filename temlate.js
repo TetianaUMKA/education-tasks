@@ -44,8 +44,8 @@ const result = 5 + 7 - 2 * 2;
 console.log(result);
 
 // Складні типи данних - мутабельні(їх можна змінювати за допомогою методів)
-// 1) Масиви (str #358)
-// 2) ...
+// 1) Array (str #358)
+// 2) Object
 // приклад мутабельності
 const mutableArray = [350, 450, 650];
 mutableArray.push(850); // [350, 450, 650, 850]
@@ -355,7 +355,7 @@ do {
 //   i += 1;
 // } while (i < string.length);
 
-// Масиви
+// Масиви (index -> value)
 //             0     1      2      3       4
 const array = ["hello", 1, null, true, [1, 2, 3]];
 //             1     2      3      4       5
@@ -756,3 +756,67 @@ function addScores(arr) {
   return balanceSum;
 }
 //-------
+
+// Object (key: value) Порядок розміщення властивостей об'єкту не має різниці, бо не має прив'язки до індекса, всі властивості розміщуюються згідно алфавітного порядку назв їхніх ключів.
+const firstValue = 50;
+const secondValue = 30;
+const user = {
+  firstName: "Artem",
+  age: 28,
+  programLanguages: {
+    html: false,
+    css: false,
+    js: true,
+    React_Native: true,
+    // "React Native": false, // not good idea to name key by using gap
+  },
+  objectResult: firstValue + secondValue,
+};
+
+console.log(user);
+
+console.log(user.objectResult); // 80
+
+console.log(user.programLanguages.React_Native); //true
+// console.log(user["programLanguages"]["React Native"]); // the way for string keys
+
+// Метод перебору object for...in
+for (const key in user) {
+  // console.log(user.age); // 28
+  console.log(user[key]);
+}
+
+user.age = 29;
+user.age += 1;
+console.log(user.age); // 30
+
+// add element in object
+user.city = "LA";
+console.log(user);
+console.log(user.city); // LA
+
+// delete
+delete user.programLanguages.React_Native;
+console.log(user);
+console.log(user.programLanguages);
+
+// Object.freeze() is the method which prevents extensions and makes existing properties non-writable and non-configurable
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
+
+// Object.freeze(user);
+// user.age = 50; // TypeError // because we can change anything in object
+
+// Власний та невласний об'єкт
+const user2 = Object.create(user);
+// у такий спосіб ми отримаємо об'єкт із доступом до інформації про властивості оригіналу, на основі якого був сворений прототип
+console.log(user2); // {...} пустий але  з нижче вкладенними посиланнями на властивості оригінала
+console.log(user.firstName); // Artem
+// але не маємо доступу, щоб змінювати значення в оригіналі
+
+user2.age = 33; // запише до створеного портотипу
+console.log(user.age); // 30
+console.log(user2.age); // 33
+
+for (const key in user2) {
+  console.log(user2[key]); // 33 Artem {html: false, css: false, js: true} 80 LA
+}
