@@ -757,7 +757,7 @@ function addScores(arr) {
 }
 //-------
 
-// Object (key: value) Порядок розміщення властивостей об'єкту не має різниці, бо не має прив'язки до індекса, всі властивості розміщуюються згідно алфавітного порядку назв їхніх ключів.
+// Object (key: value) Порядок розміщення властивостей об'єкту не має різниці, бо не має прив'язки до індекса, всі властивості розміщуються згідно алфавітного порядку назв їхніх ключів.
 const firstValue = 50;
 const secondValue = 30;
 const user = {
@@ -818,5 +818,27 @@ console.log(user.age); // 30
 console.log(user2.age); // 33
 
 for (const key in user2) {
-  console.log(user2[key]); // 33 Artem {html: false, css: false, js: true} 80 LA
+  console.log("All", user2[key]); // 33 Artem {html: false, css: false, js: true} 80 LA
+  if (user2.hasOwnProperty(key)) {
+    console.log("Own", user2[key]);
+  }
+}
+
+// щоб дізнатись чи є ключ з властивістю
+const userLucky = {
+  score: 0,
+};
+//first way, don't show key if value property = one of the six value, which returns 'false' in boolean
+if (userLucky.score) {
+  console.log("yes");
+} else {
+  console.log("no, because it is 0, therefore it means false in boolean");
+}
+//second way shows own property even it will be false value in boolean
+if (userLucky.hasOwnProperty("score")) {
+  console.log("yes, it is true");
+}
+// third way shows all properties with key name which is needed even if it won't be own properties and will be false value in boolean
+if ("score" in userLucky) {
+  console.log("yes, of course");
 }
