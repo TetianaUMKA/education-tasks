@@ -842,3 +842,35 @@ if (userLucky.hasOwnProperty("score")) {
 if ("score" in userLucky) {
   console.log("yes, of course");
 }
+
+// Method of the object - це функція, яка вкладенна в середину об'єкту
+// якщо ми знаходимося у методі об'єкту, то до всіх властивостей цього об'єкту звертаємося через ключове слово this
+
+const userSomeone = {
+  firstName: "Andrew",
+  age: 35,
+  languages: {
+    html: true,
+    css: true,
+    js: true,
+    react: true,
+    node: false,
+  },
+  showUserProperties() {
+    console.log(this); // console.log(userSomeOne) means the same, but word 'this' instead of name of object gives us opportunity use method for later created prototypes
+  },
+  userIntroduce() {
+    console.log(`Hello! My name ${this.firstName} ${this.age} yers old`);
+  },
+};
+
+userSomeone.showUserProperties();
+
+// we can create a prototype to many different users and use the method of original object
+const userSomebodyElse = Object.create(userSomeone);
+userSomebodyElse.age = 40;
+userSomebodyElse.firstName = "Nika";
+userSomebodyElse.showUserProperties();
+
+userSomeone.userIntroduce();
+userSomebodyElse.userIntroduce();
