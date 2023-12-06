@@ -871,12 +871,14 @@ const userSomeone = {
   },
   userSkillsListAnotherWay() {
     const keys = Object.keys(this.languages); // Object.keys() is used for only own properties (therefore as theorically we can use name this object('userSomeone') instead of 'this')
-    console.log(keys); // return property keys as an array
+    console.log(keys); // returns property keys as an array with strings in it
     for (const key of keys) {
       if (this.languages[key]) {
         console.log(key);
       }
     }
+    const values = Object.values(this.languages); // Object.values() is used for only own properties
+    console.log(values); // returns property values as an array with different values in it
   },
 };
 
