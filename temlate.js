@@ -879,6 +879,8 @@ const userSomeone = {
     }
     const values = Object.values(this.languages); // Object.values() is used for only own properties
     console.log(values); // returns property values as an array with different values in it
+    const entriies = Object.entries(this.languages); // Object.entries() is used for only own properties
+    console.log(entriies); // returns two-level array which has the main array that contains each property apart within own array
   },
 };
 
