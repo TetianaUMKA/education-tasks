@@ -862,15 +862,43 @@ const userSomeone = {
   userIntroduce() {
     console.log(`Hello! My name ${this.firstName} ${this.age} yers old`);
   },
+  userSkillsList() {
+    for (const key in this.languages) {
+      if (this.languages[key]) {
+        console.log(key);
+      }
+    }
+  },
+  userSkillsListAnotherWay() {
+    const keys = Object.keys(this.languages); // Object.keys() is used for only own properties (therefore as theorically we can use name this object('userSomeone') instead of 'this')
+    console.log(keys); // return property keys as an array
+    for (const key of keys) {
+      if (this.languages[key]) {
+        console.log(key);
+      }
+    }
+  },
 };
 
 userSomeone.showUserProperties();
+userSomeone.userSkillsListAnotherWay();
 
 // we can create a prototype to many different users and use the method of original object
 const userSomebodyElse = Object.create(userSomeone);
 userSomebodyElse.age = 40;
 userSomebodyElse.firstName = "Nika";
+userSomebodyElse.languages = {
+  html: true,
+  css: true,
+  js: true,
+  react: true,
+  node: true,
+};
+
 userSomebodyElse.showUserProperties();
 
 userSomeone.userIntroduce();
 userSomebodyElse.userIntroduce();
+
+userSomeone.userSkillsList();
+userSomebodyElse.userSkillsList();
