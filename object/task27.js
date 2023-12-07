@@ -8,9 +8,16 @@ const user = {
 user.mood = "happy";
 user.hobby = "skydiving";
 user.premium = false;
-const properties = Object.keys(user);
-console.log(properties);
 console.log(user);
-for (const key of properties) {
+
+// the first way
+// const properties = Object.keys(user);
+// console.log(properties);
+// for (const key of properties) {
+//   console.log(`${key}: ${user[key]}`);
+// }
+
+// the second way
+for (const key in user) {
   console.log(`${key}: ${user[key]}`);
 }
