@@ -17,26 +17,3 @@ console.log(sum);
 // }
 
 // console.log(sum);
-
-const stones = [
-  {
-    stoneName: "Smaragd",
-    price: 1300,
-    quantity: 4,
-  },
-  {
-    stoneName: "Diamond",
-    price: 2700,
-    quantity: 3,
-  },
-  {
-    stoneName: "Sapphire",
-    price: 400,
-    quantity: 7,
-  },
-  {
-    stoneName: "Zirconium",
-    price: 200,
-    qauntity: 16,
-  },
-];
