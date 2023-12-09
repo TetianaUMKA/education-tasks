@@ -31,7 +31,10 @@ const account = {
     console.log(itemDeposit);
     this.transactions.push(itemDeposit);
     this.balance += itemDeposit.amount;
-    alert(
+    // alert(
+    //   `Your balance was topped up by ${itemDeposit.amount}. Your balans is ${this.balance}`
+    // );
+    console.log(
       `Your balance was topped up by ${itemDeposit.amount}. Your balans is ${this.balance}`
     );
   },
@@ -42,27 +45,56 @@ const account = {
   */
   withdraw(amount) {
     if (amount > this.balance || this.balance <= 10) {
-      alert("Sorry, you do not have enough money in your balans😢");
+      // alert("Sorry, you do not have enough money in your balans😢");
+      console.log("Sorry, you do not have enough money in your balans😢");
     } else {
       const itemWithdraw = this.createTransaction(amount, Transaction.WITHDRAW);
       console.log(itemWithdraw);
       this.transactions.push(itemWithdraw);
       this.balance -= itemWithdraw.amount;
-      alert(
+      // alert(
+      //   `Withdrawal of funds in the amount of ${itemWithdraw.amount}. Your balans is ${this.balance}`
+      // );
+      console.log(
         `Withdrawal of funds in the amount of ${itemWithdraw.amount}. Your balans is ${this.balance}`
       );
     }
+  },
+  getBalans() {
+    return this.balance;
+  },
+
+  // /* Method looks for the object of transaction by id and return it
+  getTransactionDetails(id) {
+    for (const transaction of this.transactions) {
+      if (transaction.id === id) {
+        return transaction;
+      }
+    }
+  },
+  getNeededTypeTransaction(type) {
+    let sumTypeTransaction = 0;
+    for (const transaction of this.transactions) {
+      if (transaction.type === type) {
+        console.log(transaction);
+        sumTypeTransaction += transaction.amount;
+      }
+    }
+    console.log(`Total ${type} transaction: ${sumTypeTransaction}`);
   },
 };
 
 // console.log(account.createTransaction(1000, "deposit"));
 account.deposit(1000);
 account.deposit(700);
-// account.deposit(3000);
+account.deposit(3000);
 
 account.withdraw(500);
-// account.withdraw(7000);
+account.withdraw(7000);
 
 console.log(account.transactions);
 
 console.log(account.balance);
+
+account.getNeededTypeTransaction("deposit");
+account.getNeededTypeTransaction("withdraw");
