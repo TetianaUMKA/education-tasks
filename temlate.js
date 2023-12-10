@@ -909,7 +909,7 @@ userSomebodyElse.userSkillsList();
 
 // Деструктирізація
 
-// Destructuring array is used rarely
+// Array destructuring is used rarely
 const arrD = [122, 133, 144];
 const [one, two, three] = arrD;
 // const [, , three] = arrD; // when we need only the certain variable
@@ -917,7 +917,7 @@ console.log(one);
 console.log(two);
 console.log(three);
 
-// Destructuring object
+// Object destructuring
 const userD = {
   firstNameD: "Tranee",
   age: 20,
@@ -978,6 +978,46 @@ const candidate = [
 for (const { fullName, language } of candidate) {
   console.log(fullName, language);
 }
+
 for (const { car } of candidate) {
   console.log(car);
 }
+
+function showObj(obj) {
+  console.log(obj);
+}
+showObj({
+  firstNameU: "Stranger",
+  language: "Portuguese",
+  cars: {
+    lexus: "GX",
+    toyota: "LX300",
+  },
+});
+
+// Default values in object distructuring { key = "value" } = {}
+function showUserCars({
+  firstNameU,
+  languages: { native, professional = "None" } = {},
+}) {
+  console.log(firstNameU, native, professional);
+}
+showUserCars({
+  firstNameU: "Stranger1",
+  languages: {
+    native: "Portuguese",
+    professional: "English",
+  },
+});
+showUserCars({
+  firstNameU: "Stranger2",
+  languages: {
+    native: "Polish",
+  },
+});
+
+//example when we forgot to put properties into the function calling
+function showSomething({ params } = {}) {
+  console.log(params);
+}
+showSomething();
