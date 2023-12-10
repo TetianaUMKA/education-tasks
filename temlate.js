@@ -943,10 +943,41 @@ const {
   skillsD: {
     js: userJS,
     html,
-    css,
+    css: sass,
     cars: { audi, bmw },
   },
 } = userD;
 console.log(
   `User ${firstNameD} know JS. It is ${userJS}, isn't it.👻 But he is already rich enough and has audi ${audi}👹`
 );
+
+const candidate = [
+  {
+    fullName: "Marry Brown",
+    language: "English",
+    car: {
+      RangeRover: "Sport",
+    },
+  },
+  {
+    fullName: "Sophy White",
+    language: "French",
+    car: {
+      Lexus: "RX",
+    },
+  },
+  {
+    fullName: "Nikolas Green",
+    language: "German",
+    car: {
+      Toyota: "RAV",
+    },
+  },
+];
+
+for (const { fullName, language } of candidate) {
+  console.log(fullName, language);
+}
+for (const { car } of candidate) {
+  console.log(car);
+}
