@@ -395,7 +395,7 @@ for (let i = 0; i < arrayExample.length; i += 1) {
   console.log(arrayExample[i]);
 }
 
-//for of перебирає всі елементи масsву з перщого до останього,
+//for of перебирає всі елементи масиву з перщого до останього,
 // !!! Але використовуючи for of ми працюємо з копію ітеруємого елемента
 for (const item of arrayExample) {
   console.log(item);
@@ -906,3 +906,47 @@ userSomebodyElse.userIntroduce();
 
 userSomeone.userSkillsList();
 userSomebodyElse.userSkillsList();
+
+// Деструктирізація
+
+// Destructuring array is used rarely
+const arrD = [122, 133, 144];
+const [one, two, three] = arrD;
+// const [, , three] = arrD; // when we need only the certain variable
+console.log(one);
+console.log(two);
+console.log(three);
+
+// Destructuring object
+const userD = {
+  firstNameD: "Tranee",
+  age: 20,
+  skillsD: {
+    html: true,
+    css: true,
+    js: false,
+    cars: {
+      audi: "Q8",
+      bmw: "X9",
+    },
+  },
+};
+
+// const ageD = userD.ageD;
+// const html = userD.skillsD.html;
+
+const { age: ageD, firstNameD } = userD; // age: ageD is changing of name of key
+console.log(ageD);
+console.log(firstNameD);
+
+const {
+  skillsD: {
+    js: userJS,
+    html,
+    css,
+    cars: { audi, bmw },
+  },
+} = userD;
+console.log(
+  `User ${firstNameD} know JS. It is ${userJS}, isn't it.👻 But he is already rich enough and has audi ${audi}👹`
+);
