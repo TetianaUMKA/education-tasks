@@ -809,7 +809,7 @@ console.log(user.programLanguages);
 // Власний та невласний об'єкт
 const user2 = Object.create(user);
 // у такий спосіб ми отримаємо об'єкт із доступом до інформації про властивості оригіналу, на основі якого був сворений прототип
-console.log(user2); // {...} пустий але  з нижче вкладенними посиланнями на властивості оригінала
+console.log(user2); // { } пустий але  з нижче вкладенними посиланнями на властивості оригінала
 console.log(user.firstName); // Artem
 // але не маємо доступу, щоб змінювати значення в оригіналі
 
@@ -1049,3 +1049,30 @@ for (let i = 0; i < props.length; i += 1) {
   props[i] *= firstEl;
 }
 console.log(props); //[264, 36, 168, 540, 192, 684]
+
+function rest([first, second, ...args]) {
+  console.log(args); // [6, 7, 8]
+}
+rest([4, 5, 6, 7, 8]);
+
+function rest2(first, ...params) {
+  console.log(params); // 88, 99, 111
+}
+rest2(77, 88, 99, 111);
+
+const arrS = [20, 60, 30, 80, 40];
+function spread(first, second) {
+  console.log(first, second);
+}
+spread(...arrS);
+
+const arrSpreadRest = [445, 899, 655, 955, 233];
+
+function spredRest(first, second, ...rest) {
+  console.log(first, second); // 445, 899
+  console.log(rest); // [655, 955, 233]
+}
+
+spredRest(...arrSpreadRest);
+
+console.log(arrSpreadRest); // [445, 899, 655, 955, 233]
