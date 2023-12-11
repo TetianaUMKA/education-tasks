@@ -1018,6 +1018,34 @@ showUserCars({
 
 //example when we forgot to put properties into the function calling
 function showSomething({ params } = {}) {
-  console.log(params);
+  console.log(params); // indefined / but no mistakes
 }
 showSomething();
+
+// SPREAD sprays array
+
+const arrSpread = [12, 22, 3, 14, 45, 16, 57];
+const min = Math.min(...arrSpread);
+console.log(min);
+console.log(...arrSpread); // 12, 22, 3, 14, 16, 57 by taking out the array literal
+
+// const arrSpread2 = arrSpread;
+// console.log(arrSpread2 === arrSpread); // true
+// If we change something in arrSpread2 that couses the changes in arrSpread
+// Therefore we can also use [...spread] for making copy array to avoid changes in a main array
+const arrSpread2 = [...arrSpread];
+console.log(arrSpread2 === arrSpread); // false
+
+// REST collect the rest
+
+const arrRest = [12, 22, 3, 14, 45, 16, 57];
+// Examle: we need multiply first element of array to each next element of array and don't change main array
+const [firstEl, ...props] = arrRest;
+console.log(arrRest); // [12, 22, 3, 14, 45, 16, 57]
+console.log(firstEl); // 12
+console.log(props); // [22, 3, 14, 45, 16, 57];
+
+for (let i = 0; i < props.length; i += 1) {
+  props[i] *= firstEl;
+}
+console.log(props); //[264, 36, 168, 540, 192, 684]
