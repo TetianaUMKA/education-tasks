@@ -1,3 +1,11 @@
+//Example /** JSDoc comment
+
+/**
+ * Calculate Body Mass Index
+ * @param {Object} {weight, height}
+ * @returns {Number} BMI
+ */
+
 function calcBMI({ weight, height }) {
   const numberWeight = Number(weight.replace(",", "."));
   const numberHeight = Number(height.replace(",", "."));
