@@ -5,8 +5,10 @@ height = Number(height);
 // height = +height;   this expression results in type number
 // console.log(typeof height);
 
-const bmi = (weight / Math.pow(height, 2)).toFixed(1);
+const bmi = Number((weight / Math.pow(height, 2)).toFixed(1));
 
 // const bmi = Number((weight / height ** 2).toFixed(1));
+
+// const bmi = Number((weight / (height * height)).toFixed(1));
 
 console.log(bmi);
