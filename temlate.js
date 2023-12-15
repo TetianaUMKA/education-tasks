@@ -1076,3 +1076,5 @@ function spredRest(first, second, ...rest) {
 spredRest(...arrSpreadRest);
 
 console.log(arrSpreadRest); // [445, 899, 655, 955, 233]
+
+// Callback function
