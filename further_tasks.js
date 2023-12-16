@@ -59,6 +59,12 @@ const stones = [
     quantity: 68,
   },
 ];
+/**
+ *
+ * @param {Array} stones
+ * @param {String} stoneName
+ * @returns {String} to console.log
+ */
 
 function calcTotalStonePrice(stones, stoneName) {
   let stoneFoundName = ""; // let stoneFoundName was created for further use
@@ -97,3 +103,64 @@ calcTotalStonePrice(stones, "Diamond");
 calcTotalStonePrice(stones, "Granite");
 
 calcTotalStonePrice(stones, "Kiwi");
+
+// #4
+
+const TransactionTypes = {
+  DEPOSIT: "deposit",
+  WITHDRAW: "withdraw",
+};
+
+let id = 1;
+const account = {
+  balance: 0,
+
+  transactions: [],
+
+  createTransaction(amount, type) {
+    return {
+      amount, //amount: amount,
+      type, //type: type,
+      id, // id: Math.floor(Math.random() * 100) // id:
+    };
+  },
+
+  makeDeposit(amount) {
+    this.balance += amount;
+    this.transactions.push(
+      this.createTransaction(amount, TransactionTypes.DEPOSIT)
+    );
+    id += 1;
+  },
+
+  makeWithdrow(amount) {
+    if (this.balance > amount && this.balance > 10) {
+      this.balance -= amount;
+      this.transactions.push(
+        this.createTransaction(amount, TransactionTypes.WITHDRAW)
+      );
+      id += 1;
+    }
+  },
+
+  getBalance() {
+    return this.balance;
+  },
+
+  getTransactionDetails(id) {
+    for (let transaction of this.transactions) {
+      if (transaction.id === id) return item;
+    }
+    return {};
+  },
+
+  getTransactionTotal(type) {},
+};
+
+account.makeDeposit(2000);
+account.makeDeposit(700);
+account.makeWithdrow(400);
+
+console.log(account.getBalance());
+
+console.log(account.transactions);
