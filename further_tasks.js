@@ -140,6 +140,8 @@ const account = {
         this.createTransaction(amount, TransactionTypes.WITHDRAW)
       );
       id += 1;
+    } else {
+      console.log("Your balance is insufficient");
     }
   },
 
@@ -149,7 +151,7 @@ const account = {
 
   getTransactionDetails(id) {
     for (let transaction of this.transactions) {
-      if (transaction.id === id) return item;
+      if (transaction.id === id) return transaction;
     }
     return {};
   },
@@ -172,12 +174,15 @@ account.makeDeposit(300);
 console.log(account.getBalance());
 
 account.makeWithdrow(400);
-account.makeWithdrow(1000);
-
+account.makeWithdrow(800);
+account.makeWithdrow(9000);
+account.makeWithdrow(6000);
 const currentBalance = account.getBalance();
 console.log(currentBalance);
 
 console.log(account.transactions);
+
+console.log(account.getTransactionDetails(3));
 
 console.log(account.getTransactionTotal("deposit"));
 console.log(account.getTransactionTotal("withdraw"));
