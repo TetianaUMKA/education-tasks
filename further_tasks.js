@@ -121,7 +121,7 @@ const account = {
     return {
       amount, //amount: amount,
       type, //type: type,
-      id, // id: Math.floor(Math.random() * 100) // id:
+      id, // or id: Math.floor(Math.random() * 100) // or id:Date.now()
     };
   },
 
@@ -154,13 +154,30 @@ const account = {
     return {};
   },
 
-  getTransactionTotal(type) {},
+  getTransactionTotal(type) {
+    let transactionTotal = 0;
+    for (const transaction of this.transactions) {
+      if (transaction.type === type) {
+        transactionTotal += transaction.amount;
+      }
+    }
+    return `The total amount of ${type} transactions: ${transactionTotal}`;
+  },
 };
 
 account.makeDeposit(2000);
 account.makeDeposit(700);
-account.makeWithdrow(400);
+account.makeDeposit(300);
 
 console.log(account.getBalance());
 
+account.makeWithdrow(400);
+account.makeWithdrow(1000);
+
+const currentBalance = account.getBalance();
+console.log(currentBalance);
+
 console.log(account.transactions);
+
+console.log(account.getTransactionTotal("deposit"));
+console.log(account.getTransactionTotal("withdraw"));
