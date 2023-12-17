@@ -105,7 +105,6 @@ calcTotalStonePrice(stones, "Granite");
 calcTotalStonePrice(stones, "Kiwi");
 
 // #4
-
 const TransactionTypes = {
   DEPOSIT: "deposit",
   WITHDRAW: "withdraw",
@@ -186,3 +185,20 @@ console.log(account.getTransactionDetails(3));
 
 console.log(account.getTransactionTotal("deposit"));
 console.log(account.getTransactionTotal("withdraw"));
+
+// #5
+
+function calcBMI({ weight, height }) {
+  const weightNum = Number(weight.replace(",", "."));
+  const heightNum = Number(height.replace(",", "."));
+  return Number((weightNum / heightNum ** 2).toFixed(1));
+}
+
+console.log(
+  calcBMI({
+    weight: "88,3",
+    height: "1.75",
+  })
+);
+
+// #6
