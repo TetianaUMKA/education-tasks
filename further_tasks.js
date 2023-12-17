@@ -328,3 +328,32 @@ function getStockReport({ companyName, stock }) {
 
 getStockReport(company1);
 getStockReport(company2);
+
+// #9
+function createContact(partialContact) {
+  return {
+    list: "default",
+    ...partialContact,
+    id: generateId(),
+    createdAt: Date.now(),
+  };
+}
+
+console.log(
+  createContact({
+    firstName: "Simona",
+    email: "simona@gmail.com",
+    list: "friends",
+  })
+);
+
+console.log(
+  createContact({
+    firstName: "Victoria",
+    email: "victoria@gmail.com",
+  })
+);
+
+function generateId() {
+  return "_" + Math.random().toString(36).substr(2, 9);
+}
