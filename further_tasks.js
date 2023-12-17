@@ -395,3 +395,30 @@ console.log(newContactPeter);
 function generateId2() {
   return "_" + Math.random().toString(36).substr(2, 9);
 }
+
+// #10 from rest to spread
+function transformUserName({ firstName, lastName, ...args }) {
+  return {
+    fullName: `${firstName} ${lastName}`,
+    ...args,
+  };
+}
+
+console.log(
+  transformUserName({
+    id: 1,
+    firstName: "Jacob",
+    lastName: "Brown",
+    email: "j.brown@gmail.com",
+    friendCount: 40,
+  })
+);
+
+const newContactLisa = transformUserName({
+  id: 1,
+  firstName: "Lisa",
+  lastName: "White",
+  email: "l.white@gmail.com",
+  friendCount: 70,
+});
+console.log(newContactLisa);
