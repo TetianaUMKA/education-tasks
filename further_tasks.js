@@ -329,7 +329,7 @@ function getStockReport({ companyName, stock }) {
 getStockReport(company1);
 getStockReport(company2);
 
-// #9
+// #9 ...rest
 function createContact(partialContact) {
   return {
     list: "default",
@@ -355,5 +355,43 @@ console.log(
 );
 
 function generateId() {
+  return "_" + Math.random().toString(36).substr(2, 9);
+}
+
+// #9 destructuring and writting to variable const
+
+function createContact2({ firstName, email, list = "default" }) {
+  return {
+    firstName,
+    email,
+    list,
+    id: generateId(),
+    createdAt: Date.now(),
+  };
+}
+
+const contactMark = {
+  firstName: "Mark",
+  email: "Mark@gmail.com",
+  list: "friends",
+};
+
+const newContactMark = createContact2(contactMark);
+console.log(newContactMark);
+
+console.log(
+  createContact2({
+    firstName: "Kristy",
+    email: "krysty@gmail.com",
+  })
+);
+
+const newContactPeter = createContact2({
+  firstName: "Peter",
+  email: "peter@gmail.com",
+});
+console.log(newContactPeter);
+
+function generateId2() {
   return "_" + Math.random().toString(36).substr(2, 9);
 }
