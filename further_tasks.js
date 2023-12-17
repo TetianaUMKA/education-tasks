@@ -263,7 +263,6 @@ printContactInfo3({
 });
 
 // #7
-
 function getBotReport({ companyName, bots: { repair, defence } }) {
   return `${companyName} has ${repair + defence} bots in stock`;
 }
@@ -277,3 +276,55 @@ console.log(
     },
   })
 );
+
+// #7 If we need deconstruct a code that was written earlier by changing nothing in the code of the function.
+
+function getBotReport2({
+  companyName,
+  bots: { repair: defenceBots, defence: repairBots },
+}) {
+  return `${companyName} has ${repairBots + defenceBots} bots in stock`;
+}
+
+// console.log("Cyberdyne System", 150, 50);
+
+console.log(
+  getBotReport2({
+    companyName: "Cyberdyne System",
+    bots: {
+      repair: 150,
+      defence: 50,
+    },
+  })
+);
+
+// #8
+const company1 = {
+  companyName: "CyberDymic",
+  stock: {
+    repairBots: 150,
+    defenceBots: 200,
+    kamikazeBots: 0,
+  },
+};
+
+const company2 = {
+  companyName: "BotClouds",
+  stock: {
+    repairBots: 150,
+    defenceBots: 200,
+    kamikazeBots: 300,
+  },
+};
+
+function getStockReport({ companyName, stock }) {
+  let totalBotsAmount = 0;
+  for (const value of Object.values(stock)) {
+    totalBotsAmount += value;
+  }
+  console.log(`${companyName} has in stocks:
+    ${totalBotsAmount}`);
+}
+
+getStockReport(company1);
+getStockReport(company2);
