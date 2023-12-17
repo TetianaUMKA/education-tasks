@@ -261,3 +261,19 @@ printContactInfo3({
   names: "Kate,Jonas,Alex,Mark",
   // phones: "0967895400,0675600276,0684003218,0986754300",
 });
+
+// #7
+
+function getBotReport({ companyName, bots: { repair, defence } }) {
+  return `${companyName} has ${repair + defence} bots in stock`;
+}
+
+console.log(
+  getBotReport({
+    companyName: "Cyberdyne System",
+    bots: {
+      repair: 150,
+      defence: 50,
+    },
+  })
+);
