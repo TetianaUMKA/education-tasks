@@ -187,7 +187,6 @@ console.log(account.getTransactionTotal("deposit"));
 console.log(account.getTransactionTotal("withdraw"));
 
 // #5
-
 function calcBMI({ weight, height }) {
   const weightNum = Number(weight.replace(",", "."));
   const heightNum = Number(height.replace(",", "."));
@@ -202,3 +201,18 @@ console.log(
 );
 
 // #6
+function printContactInfo({ names, phones }) {
+  const namesArray = names.split(",");
+  const phonesArray = phones.split(",");
+  for (let i = 0, n = 1; i < namesArray.length; i += 1, n += 1) {
+    console.log(
+      `${n}. ${namesArray[i]} tel: ${
+        phonesArray[i] ? phonesArray[i] : "Ops..🤷🏻‍♀️"
+      }`
+    );
+  }
+}
+printContactInfo({
+  names: "Jacob,William,Solomon,Artem",
+  phones: "0967895432, 0675643276, 0684563218",
+});
