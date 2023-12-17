@@ -214,7 +214,7 @@ function printContactInfo({ names, phones }) {
 }
 printContactInfo({
   names: "Jacob,William,Solomon,Artem",
-  phones: "0967895432, 0675643276, 0684563218",
+  phones: "0967895432,0675643276,0684563218",
 });
 
 // #6 add default value for one param to avoid errors
@@ -231,19 +231,33 @@ function printContactInfo2({ names = "", phones }) {
 }
 printContactInfo2({
   // names: "Jacob,William,Solomon,Artem",
-  phones: "0967895432, 0675643276, 0684563218",
+  phones: "0967895432,0675643276,0684563218",
 });
 
 // #6 default value for all params to avoid errors
-function printContactInfo3({ names, phones } = { names: "", phones: "" }) {
+function printContactInfo3(
+  { names = "", phones = "" } = { names: "", phones: "" }
+) {
   const namesArray = names.split(",");
   const phonesArray = phones.split(",");
   for (let i = 0, n = 1; i < namesArray.length; i += 1, n += 1) {
-    console.log(
-      `${n}. ${namesArray[i]} tel: ${
-        phonesArray[i] ? phonesArray[i] : "Ops..🤷🏻‍♀️"
-      }`
-    );
+    !names && !phones
+      ? console.log(`"Ops..🤷🏻‍♀️ The list is empty"`)
+      : console.log(
+          `${n}. ${namesArray[i]} tel: ${
+            phonesArray[i] ? phonesArray[i] : "Ops..🤷🏻‍♀️"
+          }`
+        );
   }
 }
 printContactInfo3();
+
+printContactInfo3({
+  names: "Kate,Jonas,Alex,Mark",
+  phones: "0967895400,0675600276,0684003218,0986754300",
+});
+
+printContactInfo3({
+  names: "Kate,Jonas,Alex,Mark",
+  // phones: "0967895400,0675600276,0684003218,0986754300",
+});
