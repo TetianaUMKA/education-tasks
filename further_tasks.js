@@ -358,7 +358,7 @@ function generateId() {
   return "_" + Math.random().toString(36).substr(2, 9);
 }
 
-// #9 destructuring and writting to variable const
+// #9 destructuring and writing to variable const
 
 function createContact2({ firstName, email, list = "default" }) {
   return {
