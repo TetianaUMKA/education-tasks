@@ -1077,4 +1077,24 @@ spredRest(...arrSpreadRest);
 
 console.log(arrSpreadRest); // [445, 899, 655, 955, 233]
 
-// Callback function
+// Callback functions
+
+const arrC = [2, 6, 1, 7, 3];
+function each(arrC, callback) {
+  let total = 1;
+  for (const item of arrC) {
+    total = callback(total, item);
+  }
+  return total;
+}
+
+console.log(each(arrC, addC));
+console.log(each(arrC, sumC));
+
+function addC(first, second) {
+  return first + second;
+}
+
+function sumC(first, second) {
+  return first * second;
+}
