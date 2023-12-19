@@ -55,3 +55,46 @@ function fnPutToBody3(number) {
 fn3("There is the message1, the third case✅");
 
 /// !!! The conclusion of this test is that code execute the same in the all cases///
+
+let result = 0;
+
+const doMath = function (a, b, callback) {
+  result = callback(a, b);
+};
+
+const add = function (x, y) {
+  return x + y;
+};
+
+const minus = function (x, y) {
+  return x - y;
+};
+
+const devide = function (x, y) {
+  return x / y;
+};
+
+const multiply = function (x, y) {
+  return x * y;
+};
+
+const pov = function (x, y) {
+  return x ** 2;
+};
+
+const reset = function (x, y) {
+  return x * 0;
+};
+
+const clean = doMath(2, 3, add);
+console.log(result);
+doMath(result, 2, minus);
+console.log(result);
+doMath(result, 2, devide);
+console.log(result);
+doMath(result, 10, multiply);
+console.log(result);
+doMath(result, 0, pov);
+console.log(result);
+doMath(result, 0, reset);
+console.log(result);
