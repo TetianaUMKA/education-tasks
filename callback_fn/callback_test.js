@@ -86,15 +86,20 @@ const reset = function (x, y) {
   return x * 0;
 };
 
-const clean = doMath(2, 3, add);
+doMath(2, 3, add);
 console.log(result);
+
 doMath(result, 2, minus);
 console.log(result);
+
 doMath(result, 2, devide);
 console.log(result);
+
 doMath(result, 10, multiply);
 console.log(result);
+
 doMath(result, 0, pov);
 console.log(result);
+
 doMath(result, 0, reset);
 console.log(result);
