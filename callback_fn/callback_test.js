@@ -70,7 +70,7 @@ const minus = function (x, y) {
   return x - y;
 };
 
-const devide = function (x, y) {
+const divide = function (x, y) {
   return x / y;
 };
 
@@ -92,7 +92,7 @@ console.log(result);
 doMath(result, 2, minus);
 console.log(result);
 
-doMath(result, 2, devide);
+doMath(result, 2, divide);
 console.log(result);
 
 doMath(result, 10, multiply);
