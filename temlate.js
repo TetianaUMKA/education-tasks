@@ -1093,9 +1093,35 @@ function addC(first, second) {
   return first + second;
 }
 
-function sumC(first, second) {
+function multiplyC(first, second) {
   return first * second;
 }
 
-console.log(each(arrC, addC));
-console.log(each(arrC, sumC));
+console.log(each(arrC, addC)); // 19
+console.log(each(arrC, multiplyC)); // 4788 (19 multiply by the first element of array, then the result multiply by the second and so on.)
+
+const arrC2 = [5, 10, 8, 4, 2];
+
+function each2(arrC2, callback) {
+  let totalEach = arrC2[0];
+  for (let i = 1; i < arrC2.length; i += 1) {
+    totalEach = callback(totalEach, arrC2[i]);
+  }
+  return totalEach;
+}
+
+function addEach(firstParam, secondParam) {
+  return firstParam + secondParam;
+}
+
+function multiplyEach(firstParam, secondParam) {
+  return firstParam * secondParam;
+}
+
+function divideEach(firstParam, secondParam) {
+  return Number((firstParam / secondParam).toFixed(3));
+}
+
+console.log(each2(arrC2, addEach)); // 19
+console.log(each2(arrC2, multiplyEach)); // 3200
+console.log(each2(arrC2, divideEach)); //
