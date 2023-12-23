@@ -1126,7 +1126,7 @@ console.log(each2(arrC2, addEach)); // 19
 console.log(each2(arrC2, multiplyEach)); // 3200
 console.log(each2(arrC2, divideEach)); //
 
-// method forEach() sorts every element of array. We cannot assign this method into a variable because it return undefined. Therefore we cannot return for this method.
+// The method forEach() sorts every element of array. We cannot assign this method into a variable because it return undefined. Therefore we cannot return for this method.
 
 const arrE = [45, 89, 24, 96, 53, 78];
 
@@ -1142,8 +1142,73 @@ arrE.forEach(function (item, idx, arrE) {
 
 console.log(arrE);
 
-// we can use only index if we need know only idx; but we must put lower sub-blasting(_) instead of item.
+// we can use only the index if we only need to know idx; but we must put lower sub-blasting(_) instead of an item to avoid unused parameter.
 
-arrE.forEach(function (item, idx) {
+arrE.forEach(function (_, idx) {
   console.log(idx);
 });
+
+/// Arrow function /// cannot be called above in the code. Only the function declaration is supported by hosting and can be called as well.
+// ...argumets cannot be used in arrow function, but we can use ...rest insted of it.
+/// 'this' doesn't work with an arrow function in the object
+
+let resultArow = 0;
+
+const doMath = function (a, b, callback) {
+  resultArow = callback(a, b);
+};
+
+const addA = (x, y) => x + y;
+
+const minusA = (x, y) => x - y;
+
+const divideA = (x, y) => x / y;
+
+const multiplyA = (x, y) => x * y;
+
+const povA = (x, _) => x ** 2;
+
+const resetA = (x, _) => x * 0;
+
+doMath(2, 3, addA);
+console.log(resultArow);
+
+doMath(resultArow, 2, minusA);
+console.log(resultArow);
+
+doMath(resultArow, 2, divideA);
+console.log(resultArow);
+
+doMath(resultArow, 10, multiplyA);
+console.log(resultArow);
+
+doMath(resultArow, 0, povA);
+console.log(resultArow);
+
+doMath(resultArow, 0, resetA);
+console.log(resultArow);
+
+const userArrow = {
+  userName: "Test user",
+  say() {
+    console.log(`Hello ${this.userName}`);
+  },
+  sayHelloA: () => {
+    console.log(`Hello ${userArrow.userName}`);
+  },
+  // sayHelloA2: () => {
+  //   console.log(`Hello ${this.userName}`); // !!!!!! this doesn't work ERROR
+  // },
+  sayTest() {
+    console.log(`${this}`); // object Object
+  },
+  sayTestA: () => {
+    console.log(`${this}`); // undefined
+  },
+};
+
+userArrow.say();
+userArrow.sayHelloA();
+// userArrow.sayHelloA2();
+userArrow.sayTest();
+userArrow.sayTestA();
