@@ -1125,3 +1125,25 @@ function divideEach(firstParam, secondParam) {
 console.log(each2(arrC2, addEach)); // 19
 console.log(each2(arrC2, multiplyEach)); // 3200
 console.log(each2(arrC2, divideEach)); //
+
+// method forEach() sorts every element of array. We cannot assign this method into a variable because it return undefined. Therefore we cannot return for this method.
+
+const arrE = [45, 89, 24, 96, 53, 78];
+
+arrE.forEach(function (item, idx, arrE) {
+  console.log(item);
+  console.log(idx);
+  console.log(arrE);
+
+  arrE[idx] = item * 2;
+
+  console.log(`Work with number ${item}`);
+});
+
+console.log(arrE);
+
+// we can use only index if we need know only idx; but we must put lower sub-blasting(_) instead of item.
+
+arrE.forEach(function (item, idx) {
+  console.log(idx);
+});
