@@ -40,12 +40,14 @@ createProduct2({ name: "🍑", price: 40, quantity: 9 }, createProductQuality2);
 createProduct2({ name: "🥥", price: 120, quantity: 2 }, logTotalPrice2);
 
 //
-
+let productTextile = {};
 function createProduct3(obj) {
-  const productTextile = { id: Math.round(Math.random() * 1000), ...obj }; // created new object because we used destructuring and use spread
+  productTextile = { id: Math.round(Math.random() * 1000), ...obj }; // created new object because we used destructuring and use spread
   console.log(productTextile);
   console.log("Incoming data stayed without changing", obj);
 }
+
+function actProductTextile(callback) {}
 
 createProduct3({ name: "👚", price: 560, quantity: 2 });
 createProduct3({ name: "👗", price: 2300, quantity: 5 });
