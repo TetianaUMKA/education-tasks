@@ -86,5 +86,3 @@ createProduct3({
   price: 2,
   quantity: 730,
 });
-
-function addToBasket(product) {}
