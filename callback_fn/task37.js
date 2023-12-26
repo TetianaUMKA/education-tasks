@@ -1,6 +1,6 @@
 // call stack
 function createProduct(obj) {
-  obj.id = Math.round(Math.random() * 1000); // we change incoming data
+  obj.id = Math.round(Math.random() * 1000); // we changed incoming data
   logProduct(obj);
   createProductQuality(obj);
   logTotalPrice(obj);
@@ -22,7 +22,7 @@ createProduct({ name: "🍋", price: 25, quantity: 5 });
 // callback
 
 function createProduct2(obj, callback) {
-  const product = { id: Math.round(Math.random() * 1000), ...obj }; // created new object because we used destructuring and use spread
+  const product = { id: Math.round(Math.random() * 1000), ...obj }; // we created new object because we used destructuring and use spread
   callback(product);
   console.log(product);
   console.log("Incoming data stayed without changing", obj);
@@ -40,15 +40,51 @@ createProduct2({ name: "🍑", price: 40, quantity: 9 }, createProductQuality2);
 createProduct2({ name: "🥥", price: 120, quantity: 2 }, logTotalPrice2);
 
 //
-let productTextile = {};
+let textileProducts = [];
+let foodProducts = [];
+let otherProduts = [];
 function createProduct3(obj) {
-  productTextile = { id: Math.round(Math.random() * 1000), ...obj }; // created new object because we used destructuring and use spread
-  console.log(productTextile);
-  console.log("Incoming data stayed without changing", obj);
+  const product = { id: Math.round(Math.random() * 1000), ...obj }; // created new object because we used destructuring and use spread
+  switch (product.productType) {
+    case "textile":
+      return textileProducts.push(product);
+    case "food":
+      return foodProducts.push(product);
+    default:
+      return otherProduts.push(product);
+  }
 }
 
-function actProductTextile(callback) {}
+console.log(textileProducts, foodProducts, otherProduts);
 
-createProduct3({ name: "👚", price: 560, quantity: 2 });
-createProduct3({ name: "👗", price: 2300, quantity: 5 });
-createProduct3({ name: "👙", price: 1300, quantity: 8 });
+createProduct3({
+  name: "👚",
+  productType: "textile",
+  price: 560,
+  quantity: 12,
+});
+createProduct3({
+  name: "👗",
+  productType: "textile",
+  price: 2300,
+  quantity: 6,
+});
+createProduct3({
+  name: "👙",
+  productType: "textile",
+  price: 1300,
+  quantity: 8,
+});
+
+createProduct3({ name: "🌽", productType: "food", price: 30, quantity: 140 });
+createProduct3({ name: "🍅", productType: "food", price: 89, quantity: 58 });
+createProduct3({ name: "🥟", productType: "food", price: 63, quantity: 40 });
+
+createProduct3({
+  name: "🏺",
+  productType: "souvenir",
+  price: 2,
+  quantity: 730,
+});
+
+function addToBasket(product) {}
