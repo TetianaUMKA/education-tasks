@@ -1152,6 +1152,13 @@ arrE.forEach(function (_, idx) {
 // ...argumets cannot be used in arrow function, but we can use ...rest insted of it.
 /// 'this' doesn't work with an arrow function in the object
 
+/* Examples of implicit return (неявне повернення) and explicit return (неявне повернення)
+const returnMessage = (message) => console.log(message); // implicit return
+const returnMore = (params1, params2, params3) => {
+  const sumP = params1 * params2;
+  return params3 + sumP; // explicit return
+}; */
+
 let resultArow = 0;
 
 const doMath = function (a, b, callback) {
