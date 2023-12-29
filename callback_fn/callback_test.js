@@ -103,3 +103,12 @@ console.log(result);
 
 doMath(result, 0, reset);
 console.log(result);
+
+// arrow function
+
+const addSome = (...args) => {
+  console.log(args);
+};
+addSome(100, 200, 300, 400, 500, 600);
+
+// Important: An arrow function is 💩 if it used as an object method
