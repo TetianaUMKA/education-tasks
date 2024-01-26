@@ -10,11 +10,12 @@ const user = {
 user.mood = "happy";
 user.hobby = "skydiving";
 user.premium = false;
+// user.premium = !user.premium;
 
 console.log(user);
 
 const userObj = Object.keys(user);
 
 for (const key of userObj) {
-  console.log(`${key}: ${userObj[key]}`);
+  console.log(`${key}: ${user[key]}`);
 }
